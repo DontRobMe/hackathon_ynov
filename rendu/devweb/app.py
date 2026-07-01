@@ -21,9 +21,9 @@ import streamlit as st
 # --------------------------------------------------------------------------
 # Configuration par defaut (modifiable dans la barre laterale)
 # --------------------------------------------------------------------------
-DEFAULT_SERVER_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
-DEFAULT_MODEL_NAME = os.environ.get("OLLAMA_MODEL", "phi3.5-financial")
-REQUEST_TIMEOUT_STATUS = 3      # secondes, pour le ping de statut
+DEFAULT_SERVER_URL = os.environ.get("OLLAMA_URL", "https://affiliate-apache-supervisor-white.trycloudflare.com")
+DEFAULT_MODEL_NAME = os.environ.get("OLLAMA_MODEL", "phi3.5:latest")
+REQUEST_TIMEOUT_STATUS = 8      # secondes, pour le ping de statut (tunnel = latence en plus)
 REQUEST_TIMEOUT_CHAT = 120      # secondes, pour la generation
 
 st.set_page_config(

@@ -22,6 +22,24 @@ L'interface s'ouvre sur `http://localhost:8501`.
 > (Sous Windows, `python3` seul peut ouvrir le Microsoft Store au lieu de
 > lancer Python — utilisez `python`.)
 
+## Lancement avec Docker (alternative, 2 commandes)
+
+```bash
+cd rendu/devweb
+docker build -t techcorp-devweb .
+docker run -p 8501:8501 techcorp-devweb
+```
+
+Pas besoin d'installer Python/pip, tout est dans l'image. Pour pointer vers
+un autre serveur/modèle sans rebuild :
+
+```bash
+docker run -p 8501:8501 \
+  -e OLLAMA_URL="https://xxx.trycloudflare.com" \
+  -e OLLAMA_MODEL="phi3-financial:latest" \
+  techcorp-devweb
+```
+
 ## Configuration
 
 Par défaut l'app cible `http://localhost:11434` (Ollama) et le modèle

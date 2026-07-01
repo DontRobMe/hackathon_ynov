@@ -15,7 +15,7 @@ version: Final
 | | |
 |---|---|
 | **URL** | `https://hackaton-ia.nexa-cloud.fr:8501` |
-| **Modèle** | `phi3-financial` |
+| **Modèle** | `phi3-financial:latest` |
 | **Auth** | aucune (accès direct) |
 | **Backend** | Ollama (localhost:8000 sur la VM) |
 
@@ -27,7 +27,7 @@ Déploiement complet d'une instance **Ollama** + **interface web Streamlit** sur
 
 **Statut:** ✅ Fonctionnel, app servie en `https://hackaton-ia.nexa-cloud.fr:8501` (cadenas vert), Ollama en localhost.
 
-> Voir [🔀 Évolution de l'architecture (3 étapes)](#🔀-évolution-de-larchitecture-3-étapes) pour le détail des flux à chaque étape.
+> Voir [Évolution de l'architecture (3 étapes)](#🔀-évolution-de-larchitecture-3-étapes) pour le détail des flux à chaque étape.
 
 ---
 
@@ -129,7 +129,9 @@ Users (Internet)
 [Ollama:8000] (localhost, non exposé)
 ```
 
-> ℹ️ Ceci est l'**état final**. L'archi a évolué en 3 temps (tunnel Cloudflare → app centralisée → HTTPS domaine). Détail des flux intermédiaires: [🔀 Évolution de l'architecture (3 étapes)](#🔀-évolution-de-larchitecture-3-étapes) + schéma **==DrawIO==**
+![Architecture finale (double firewall multi-tenant)](infra-sh%C3%A9ma-2.png)
+
+> ℹ️ Ceci est l'**état final**. L'archi a évolué en 3 temps (tunnel Cloudflare → app centralisée → HTTPS domaine). Détail des flux intermédiaires: [🔀 Évolution de l'architecture (3 étapes)](#🔀-évolution-de-larchitecture-3-étapes).
 
 **Infrastructure:**
 - **VM IP:** 10.251.10.60
@@ -637,7 +639,7 @@ Achat d'un **nom de domaine** (`hackaton-ia.nexa-cloud.fr` chez OVH) pointant su
 - ✅ URL stable, cert valide (cadenas vert), plus de dépendance Cloudflare
 - ⚠️ Renouvellement cert manuel tous les 90j (DNS-01)
 
-Voir schéma complet: `![[architecture.drawio]]`
+![Évolution de l'architecture en 3 étapes](infra-sh%C3%A9ma.png)
 
 ---
 
